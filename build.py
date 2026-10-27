@@ -198,6 +198,18 @@ RESTORE_LUNIDO = {
     "de": "Kauf wiederherstellen", "it": "Ripristina acquisto", "nl": "Herstel aankoop", "ja": "購入を復元",
 }
 
+# Where the restore button isn't on the Settings screen itself, the full answer.
+RESTORE_ANSWER = {
+"clockable": {
+    "en": "In the app, go to Settings › Clockable Pro and tap Restore Purchases while signed in with the Apple ID you bought it with.",
+    "pt-BR": "No app, vá em Ajustes › Clockable Pro e toque em Restaurar compras, com o mesmo Apple ID usado na compra.",
+    "es": "En la app, ve a Ajustes › Clockable Pro y toca Restaurar compras con el mismo Apple ID con el que compraste.",
+    "fr": "Dans l'app, allez dans Réglages › Clockable Pro et touchez Restaurer les achats, connecté avec l'identifiant Apple utilisé pour l'achat.",
+    "de": "Öffne in der App Einstellungen › Clockable Pro und tippe auf „Käufe wiederherstellen“, angemeldet mit der Apple-ID, mit der du gekauft hast.",
+    "it": "Nell'app, vai in Impostazioni › Clockable Pro e tocca Ripristina acquisti, con lo stesso ID Apple usato per l'acquisto.",
+    "ja": "購入時と同じApple IDでサインインした状態で、アプリの「設定 › Clockable Pro」から「購入を復元」をタップしてください。"},
+}
+
 FAQ = {
 "purasorte": {
     "en": [("Are the numbers really random?", "Yes. They come from the system's cryptographic random generator. In the Proof tab you can run up to 1 million draws and see that no number is favored."),
@@ -215,19 +227,19 @@ FAQ = {
     "ja": [("番号は本当にランダムですか？", "はい。システムの暗号用乱数生成器から作られます。「検証」タブで最大100万回抽選し、どの数字も優遇されていないことを確かめられます。"),
            ("当選確率は上がりますか？", "いいえ。どのアプリにもできません。どの組み合わせも同じ確率です。Pura Sorteはくじを販売せず、宝くじ運営者とも関係ありません。")]},
 "clockable": {
-    "en": [("How do I export my hours?", "Use the share button in the summary to export a CSV file (free) or a PDF report (Pro)."),
+    "en": [("How do I export my hours?", "On the Summary screen, tap Export CSV (free) or Export PDF (Pro). Each one opens the share sheet."),
            ("Is this an official time clock?", "No. Clockable is a personal record of your own hours. For payroll, your employer's records are the official ones.")],
-    "pt-BR": [("Como exporto minhas horas?", "Use o botão de compartilhar no resumo para exportar um arquivo CSV (grátis) ou um relatório em PDF (Pro)."),
+    "pt-BR": [("Como exporto minhas horas?", "Na tela Resumo, toque em Exportar CSV (grátis) ou Exportar PDF (Pro). Cada um abre a janela de compartilhamento."),
               ("É um ponto eletrônico oficial?", "Não. O Clockable é um controle pessoal das suas horas. Para a folha de pagamento, vale o registro oficial do empregador.")],
-    "es": [("¿Cómo exporto mis horas?", "Usa el botón de compartir en el resumen para exportar un archivo CSV (gratis) o un informe en PDF (Pro)."),
+    "es": [("¿Cómo exporto mis horas?", "En la pantalla Resumen, toca Exportar CSV (gratis) o Exportar PDF (Pro). Cada opción abre la hoja para compartir."),
            ("¿Es un control horario oficial?", "No. Clockable es un registro personal de tus horas. Para la nómina, valen los registros de tu empleador.")],
-    "fr": [("Comment exporter mes heures ?", "Utilisez le bouton de partage du récapitulatif pour exporter un fichier CSV (gratuit) ou un rapport PDF (Pro)."),
+    "fr": [("Comment exporter mes heures ?", "Dans l'écran Résumé, touchez Exporter en CSV (gratuit) ou Exporter en PDF (Pro). Chacun ouvre la feuille de partage."),
            ("Est-ce une pointeuse officielle ?", "Non. Clockable est un relevé personnel de vos heures. Pour la paie, ce sont les registres de votre employeur qui font foi.")],
-    "de": [("Wie exportiere ich meine Stunden?", "Tippe in der Übersicht auf „Teilen“ und exportiere eine CSV-Datei (gratis) oder einen PDF-Bericht (Pro)."),
+    "de": [("Wie exportiere ich meine Stunden?", "Tippe in der Übersicht auf „Als CSV exportieren“ (gratis) oder „Als PDF exportieren“ (Pro). Beides öffnet das Teilen-Menü."),
            ("Ist das eine offizielle Zeiterfassung?", "Nein. Clockable ist eine persönliche Aufzeichnung deiner Stunden. Für die Lohnabrechnung zählen die Unterlagen deines Arbeitgebers.")],
-    "it": [("Come esporto le mie ore?", "Usa il pulsante di condivisione nel riepilogo per esportare un file CSV (gratis) o un report PDF (Pro)."),
+    "it": [("Come esporto le mie ore?", "Nella schermata Riepilogo, tocca Esporta CSV (gratis) o Esporta PDF (Pro). Ognuno apre il foglio di condivisione."),
            ("È un rilevatore presenze ufficiale?", "No. Clockable è un registro personale delle tue ore. Per la busta paga valgono i registri del datore di lavoro.")],
-    "ja": [("勤務時間を書き出すには？", "集計画面の共有ボタンから、CSVファイル（無料）またはPDFレポート（Pro）を書き出せます。"),
+    "ja": [("勤務時間を書き出すには？", "「集計」画面で「CSVを書き出す」（無料）または「PDFを書き出す」（Pro）をタップすると、共有シートが開きます。"),
            ("公式のタイムカードですか？", "いいえ。Clockableはご自身の勤務時間の個人的な記録です。給与計算には勤務先の公式記録が使われます。")]},
 "lunido": {
     "en": [("The list doesn't fit my country or region.", "In Settings, tap Suggest a list correction and tell us what to change."),
@@ -291,7 +303,8 @@ def build_page(slug, app, lang, doc):
         parts.append(f"<p class=\"lead\">{esc(t['support_lead']).replace('{email}', mail)}</p>")
         parts.append(f"<h2>{esc(t['faq'])}</h2>")
         restore = (RESTORE_LUNIDO if slug == "lunido" else RESTORE)[lang]
-        for q, a in [(t["restore_q"], t["restore_a"].format(restore=restore)), (t["sync_q"], t["sync_a"].format(app=app))] + FAQ[slug][lang]:
+        restore_a = RESTORE_ANSWER.get(slug, {}).get(lang) or t["restore_a"].format(restore=restore)
+        for q, a in [(t["restore_q"], restore_a), (t["sync_q"], t["sync_a"].format(app=app))] + FAQ[slug][lang]:
             parts.append(f"<h3>{esc(q)}</h3>\n<p>{esc(a)}</p>")
         title, other_doc, other_label = t["support"], "privacy", t["privacy_link"]
     current = ' aria-current="page"'
