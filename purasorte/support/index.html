@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pura Sorte</title>
+<link rel="icon" href="../icon.png">
+<link rel="stylesheet" href="../../style.css">
+<script>
+// Opens the page in the browser's language (exact match first, then the same base language). No cookies.
+(function () {
+  var langs = ["pt-BR", "en", "es", "fr", "de", "it", "ja"];
+  var wanted = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || "en"];
+  for (var i = 0; i < wanted.length; i++) {
+    var w = wanted[i].toLowerCase(), base = w.split("-")[0];
+    var hit = langs.filter(function (l) { return l.toLowerCase() === w; })[0]
+           || langs.filter(function (l) { return l.toLowerCase().split("-")[0] === base; })[0];
+    if (hit) { location.replace(hit + ".html"); return; }
+  }
+  location.replace((langs.indexOf("en") >= 0 ? "en" : langs[0]) + ".html");
+})();
+</script>
+</head>
+<body>
+<header><img src="../icon.png" alt="" width="88" height="88"><h1>Pura Sorte</h1></header>
+<main><section><ul class="langs"><li><a href="pt-BR.html" lang="pt-BR">Português (Brasil)</a></li><li><a href="en.html" lang="en">English</a></li><li><a href="es.html" lang="es">Español</a></li><li><a href="fr.html" lang="fr">Français</a></li><li><a href="de.html" lang="de">Deutsch</a></li><li><a href="it.html" lang="it">Italiano</a></li><li><a href="ja.html" lang="ja">日本語</a></li></ul></section></main>
+</body>
+</html>
