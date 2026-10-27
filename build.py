@@ -10,7 +10,7 @@ ROOT = pathlib.Path(__file__).parent
 
 APPS = {
     "purasorte": dict(name="Pura Sorte", langs=["pt-BR", "en", "es", "fr", "de", "it", "ja"]),
-    "clockable": dict(name="Clockable", langs=["en", "pt-BR", "es", "fr", "de", "it", "ja"]),
+    "hourbee": dict(name="Hourbee", langs=["en", "pt-BR", "es", "fr", "de", "it", "ja"]),
     "lunido": dict(name="Lunido", langs=["en", "pt-BR", "pt-PT", "es", "fr", "de", "it", "nl", "ja"]),
 }
 LANG_NAMES = {"en": "English", "pt-BR": "Português (Brasil)", "pt-PT": "Português (Portugal)", "es": "Español", "fr": "Français",
@@ -138,7 +138,7 @@ STAYS = {
     "de": "Deine gespeicherten Ziehungen und Einstellungen bleiben auf deinem iPhone oder iPad.",
     "it": "Le estrazioni che salvi e le tue impostazioni restano sul tuo iPhone o iPad.",
     "ja": "保存した抽選結果と設定は、あなたのiPhoneまたはiPadに保存されます。"},
-"clockable": {
+"hourbee": {
     "en": "Your jobs, shifts, breaks, pay rates and settings stay on your iPhone or iPad.",
     "pt-BR": "Seus empregos, turnos, pausas, valores por hora e preferências ficam no seu iPhone ou iPad.",
     "es": "Tus trabajos, turnos, pausas, tarifas por hora y ajustes se quedan en tu iPhone o iPad.",
@@ -159,7 +159,7 @@ STAYS = {
 }
 
 EXTRA = {
-"clockable": {
+"hourbee": {
     "en": [("Exports", "CSV and PDF files are created on your device and go only where you choose to share them.")],
     "pt-BR": [("Exportações", "Os arquivos CSV e PDF são criados no seu aparelho e vão só para onde você escolher compartilhar.")],
     "es": [("Exportaciones", "Los archivos CSV y PDF se crean en tu dispositivo y solo van adonde decidas compartirlos.")],
@@ -200,14 +200,14 @@ RESTORE_LUNIDO = {
 
 # Where the restore button isn't on the Settings screen itself, the full answer.
 RESTORE_ANSWER = {
-"clockable": {
-    "en": "In the app, go to Settings › Clockable Pro and tap Restore Purchases while signed in with the Apple ID you bought it with.",
-    "pt-BR": "No app, vá em Ajustes › Clockable Pro e toque em Restaurar compras, com o mesmo Apple ID usado na compra.",
-    "es": "En la app, ve a Ajustes › Clockable Pro y toca Restaurar compras con el mismo Apple ID con el que compraste.",
-    "fr": "Dans l'app, allez dans Réglages › Clockable Pro et touchez Restaurer les achats, connecté avec l'identifiant Apple utilisé pour l'achat.",
-    "de": "Öffne in der App Einstellungen › Clockable Pro und tippe auf „Käufe wiederherstellen“, angemeldet mit der Apple-ID, mit der du gekauft hast.",
-    "it": "Nell'app, vai in Impostazioni › Clockable Pro e tocca Ripristina acquisti, con lo stesso ID Apple usato per l'acquisto.",
-    "ja": "購入時と同じApple IDでサインインした状態で、アプリの「設定 › Clockable Pro」から「購入を復元」をタップしてください。"},
+"hourbee": {
+    "en": "In the app, go to Settings › Hourbee Pro and tap Restore Purchases while signed in with the Apple ID you bought it with.",
+    "pt-BR": "No app, vá em Ajustes › Hourbee Pro e toque em Restaurar compras, com o mesmo Apple ID usado na compra.",
+    "es": "En la app, ve a Ajustes › Hourbee Pro y toca Restaurar compras con el mismo Apple ID con el que compraste.",
+    "fr": "Dans l'app, allez dans Réglages › Hourbee Pro et touchez Restaurer les achats, connecté avec l'identifiant Apple utilisé pour l'achat.",
+    "de": "Öffne in der App Einstellungen › Hourbee Pro und tippe auf „Käufe wiederherstellen“, angemeldet mit der Apple-ID, mit der du gekauft hast.",
+    "it": "Nell'app, vai in Impostazioni › Hourbee Pro e tocca Ripristina acquisti, con lo stesso ID Apple usato per l'acquisto.",
+    "ja": "購入時と同じApple IDでサインインした状態で、アプリの「設定 › Hourbee Pro」から「購入を復元」をタップしてください。"},
 }
 
 FAQ = {
@@ -226,21 +226,21 @@ FAQ = {
            ("L'app aumenta le mie probabilità?", "No. Nessuna app può farlo: ogni combinazione ha la stessa probabilità. Pura Sorte non vende giocate e non è legata ad alcun operatore di lotterie.")],
     "ja": [("番号は本当にランダムですか？", "はい。システムの暗号用乱数生成器から作られます。「検証」タブで最大100万回抽選し、どの数字も優遇されていないことを確かめられます。"),
            ("当選確率は上がりますか？", "いいえ。どのアプリにもできません。どの組み合わせも同じ確率です。Pura Sorteはくじを販売せず、宝くじ運営者とも関係ありません。")]},
-"clockable": {
+"hourbee": {
     "en": [("How do I export my hours?", "On the Summary screen, tap Export CSV (free) or Export PDF (Pro). Each one opens the share sheet."),
-           ("Is this an official time clock?", "No. Clockable is a personal record of your own hours. For payroll, your employer's records are the official ones.")],
+           ("Is this an official time clock?", "No. Hourbee is a personal record of your own hours. For payroll, your employer's records are the official ones.")],
     "pt-BR": [("Como exporto minhas horas?", "Na tela Resumo, toque em Exportar CSV (grátis) ou Exportar PDF (Pro). Cada um abre a janela de compartilhamento."),
-              ("É um ponto eletrônico oficial?", "Não. O Clockable é um controle pessoal das suas horas. Para a folha de pagamento, vale o registro oficial do empregador.")],
+              ("É um ponto eletrônico oficial?", "Não. O Hourbee é um controle pessoal das suas horas. Para a folha de pagamento, vale o registro oficial do empregador.")],
     "es": [("¿Cómo exporto mis horas?", "En la pantalla Resumen, toca Exportar CSV (gratis) o Exportar PDF (Pro). Cada opción abre la hoja para compartir."),
-           ("¿Es un control horario oficial?", "No. Clockable es un registro personal de tus horas. Para la nómina, valen los registros de tu empleador.")],
+           ("¿Es un control horario oficial?", "No. Hourbee es un registro personal de tus horas. Para la nómina, valen los registros de tu empleador.")],
     "fr": [("Comment exporter mes heures ?", "Dans l'écran Résumé, touchez Exporter en CSV (gratuit) ou Exporter en PDF (Pro). Chacun ouvre la feuille de partage."),
-           ("Est-ce une pointeuse officielle ?", "Non. Clockable est un relevé personnel de vos heures. Pour la paie, ce sont les registres de votre employeur qui font foi.")],
+           ("Est-ce une pointeuse officielle ?", "Non. Hourbee est un relevé personnel de vos heures. Pour la paie, ce sont les registres de votre employeur qui font foi.")],
     "de": [("Wie exportiere ich meine Stunden?", "Tippe in der Übersicht auf „Als CSV exportieren“ (gratis) oder „Als PDF exportieren“ (Pro). Beides öffnet das Teilen-Menü."),
-           ("Ist das eine offizielle Zeiterfassung?", "Nein. Clockable ist eine persönliche Aufzeichnung deiner Stunden. Für die Lohnabrechnung zählen die Unterlagen deines Arbeitgebers.")],
+           ("Ist das eine offizielle Zeiterfassung?", "Nein. Hourbee ist eine persönliche Aufzeichnung deiner Stunden. Für die Lohnabrechnung zählen die Unterlagen deines Arbeitgebers.")],
     "it": [("Come esporto le mie ore?", "Nella schermata Riepilogo, tocca Esporta CSV (gratis) o Esporta PDF (Pro). Ognuno apre il foglio di condivisione."),
-           ("È un rilevatore presenze ufficiale?", "No. Clockable è un registro personale delle tue ore. Per la busta paga valgono i registri del datore di lavoro.")],
+           ("È un rilevatore presenze ufficiale?", "No. Hourbee è un registro personale delle tue ore. Per la busta paga valgono i registri del datore di lavoro.")],
     "ja": [("勤務時間を書き出すには？", "「集計」画面で「CSVを書き出す」（無料）または「PDFを書き出す」（Pro）をタップすると、共有シートが開きます。"),
-           ("公式のタイムカードですか？", "いいえ。Clockableはご自身の勤務時間の個人的な記録です。給与計算には勤務先の公式記録が使われます。")]},
+           ("公式のタイムカードですか？", "いいえ。Hourbeeはご自身の勤務時間の個人的な記録です。給与計算には勤務先の公式記録が使われます。")]},
 "lunido": {
     "en": [("The list doesn't fit my country or region.", "In Settings, tap Suggest a list correction and tell us what to change."),
            ("Is this medical advice?", "No. Lunido is a shopping and packing list. Safety notes cite official sources; for health questions, talk to your doctor or midwife.")],
@@ -281,6 +281,21 @@ PAGE = """<!doctype html>
 <footer><span>{other}:</span> {langs}</footer>
 </main>
 </body>
+</html>
+"""
+
+# Renamed apps: every page of the old folder redirects to the same page in the new one, so links already out there
+# (older builds, the store listing) keep working.
+MOVED = {"clockable": "hourbee"}
+REDIRECT = """<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="refresh" content="0; url={url}">
+<link rel="canonical" href="{url}">
+<title>Moved</title>
+</head>
+<body><p><a href="{url}">{url}</a></p></body>
 </html>
 """
 
@@ -374,6 +389,11 @@ def main():
         cards.append(f'<section class="app"><img src="{slug}/icon.png" alt="" width="64" height="64"><div><h2>{esc(app)}</h2>'
                      f'<p><a href="{slug}/support/">Support</a> · <a href="{slug}/privacy/">Privacy policy</a></p></div></section>')
     (ROOT / "index.html").write_text(INDEX.format(cards="\n".join(cards), email=EMAIL))
+    for old, new in MOVED.items():
+        for page in (ROOT / new).rglob("*.html"):
+            rel = page.relative_to(ROOT / new)
+            (ROOT / old / rel).parent.mkdir(parents=True, exist_ok=True)
+            (ROOT / old / rel).write_text(REDIRECT.format(url="../" * len(rel.parts) + f"{new}/{rel.as_posix()}"))
     print("built", sum(len(a["langs"]) * 2 for a in APPS.values()), "pages")
 
 if __name__ == "__main__":
