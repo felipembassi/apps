@@ -13,6 +13,7 @@ APPS = {
     "purasorte": dict(name="Pura Sorte", langs=["pt-BR", "en", "es", "fr", "de", "it", "ja"]),
     "hourbee": dict(name="Hourbee", langs=["en", "pt-BR", "es", "fr", "de", "it", "ja"]),
     "lunido": dict(name="Lunido", langs=["en", "pt-BR", "pt-PT", "es", "fr", "de", "it", "nl", "ja"]),
+    "primilu": dict(name="Primilu", langs=["pt-BR", "en", "pt-PT", "es"]),
 }
 LANG_NAMES = {"en": "English", "pt-BR": "Português (Brasil)", "pt-PT": "Português (Portugal)", "es": "Español", "fr": "Français",
               "de": "Deutsch", "it": "Italiano", "nl": "Nederlands", "ja": "日本語"}
@@ -131,6 +132,11 @@ L = {
 
 # Per app: what it keeps (first sentence of "What stays on your device"), extra privacy sections and support FAQ.
 STAYS = {
+"primilu": {
+    "en": "Your baby's name and birth date, freezer batches, logged meals, allergen checks, plans, shopping list, your own foods and notes, and your settings stay on your iPhone. A note about a reaction stays on this iPhone only and never syncs.",
+    "pt-BR": "O nome e a data de nascimento do bebê, os lotes do freezer, as refeições registradas, os alergênicos, o planejamento, a lista de compras, os seus alimentos e anotações e as suas preferências ficam no seu iPhone. A anotação sobre uma reação fica só neste iPhone e nunca é sincronizada.",
+    "pt-PT": "O nome e a data de nascimento do bebé, os lotes do congelador, as refeições registadas, os alergénios, o planeamento, a lista de compras, os seus alimentos e notas e as suas preferências ficam no seu iPhone. A nota sobre uma reação fica só neste iPhone e nunca é sincronizada.",
+    "es": "El nombre y la fecha de nacimiento del bebé, los lotes del congelador, las comidas registradas, los alérgenos, la planificación, la lista de la compra, tus alimentos y notas y tus ajustes se quedan en tu iPhone. La nota sobre una reacción se queda solo en este iPhone y nunca se sincroniza."},
 "purasorte": {
     "en": "The draws you save and your settings stay on your iPhone or iPad.",
     "pt-BR": "Os sorteios que você salva e as suas preferências ficam no seu iPhone ou iPad.",
@@ -160,6 +166,19 @@ STAYS = {
 }
 
 EXTRA = {
+"primilu": {
+    "en": [("Sharing with your partner", "If you share with your partner (Pro), Apple's iCloud sharing sends the shared data to the people you invite. We never see it."),
+           ("Reminders", "Thaw, stock and use-by reminders are scheduled on your iPhone by iOS. Nothing is sent to us."),
+           ("Health information", "Primilu is an organizer with references from official health bodies. It doesn't ask for symptoms, weight or health records and doesn't use HealthKit.")],
+    "pt-BR": [("Compartilhar com o parceiro ou a parceira", "Se você compartilhar (Pro), o compartilhamento do iCloud da Apple envia os dados compartilhados para quem você convidar. Nós nunca temos acesso."),
+              ("Lembretes", "Os lembretes de descongelar, de estoque e de validade são agendados no seu iPhone pelo iOS. Nada é enviado para nós."),
+              ("Informações de saúde", "O Primilu é um organizador com referências de órgãos oficiais de saúde. Ele não pede sintomas, peso nem prontuário e não usa o app Saúde (HealthKit).")],
+    "pt-PT": [("Partilhar com o parceiro ou a parceira", "Se partilhar (Pro), a partilha do iCloud da Apple envia os dados partilhados a quem convidar. Nós nunca temos acesso."),
+              ("Lembretes", "Os lembretes de descongelar, de reserva e de validade são agendados no seu iPhone pelo iOS. Nada nos é enviado."),
+              ("Informação de saúde", "O Primilu é um organizador com referências de entidades oficiais de saúde. Não pede sintomas, peso nem registos clínicos e não usa a app Saúde (HealthKit).")],
+    "es": [("Compartir con tu pareja", "Si compartes (Pro), la función de compartir de iCloud de Apple envía los datos compartidos a quien invites. Nosotros nunca tenemos acceso."),
+           ("Recordatorios", "iOS programa en tu iPhone los recordatorios de descongelar, de reserva y de caducidad. No se nos envía nada."),
+           ("Información de salud", "Primilu es un organizador con referencias de organismos oficiales de salud. No pide síntomas, peso ni historial clínico y no usa la app Salud (HealthKit).")]},
 "hourbee": {
     "en": [("Exports", "CSV and PDF files are created on your device and go only where you choose to share them.")],
     "pt-BR": [("Exportações", "Os arquivos CSV e PDF são criados no seu aparelho e vão só para onde você escolher compartilhar.")],
@@ -212,6 +231,19 @@ RESTORE_ANSWER = {
 }
 
 FAQ = {
+"primilu": {
+    "en": [("Is this medical or nutrition advice?", "No. Primilu organizes your baby's first foods with references from official health bodies in your country, each with its source. It doesn't replace your pediatrician or nutritionist; suggested plates and amounts are starting points."),
+           ("I found something wrong in the content.", "In Settings, tap Suggest a correction and tell us the food or rule and your country. We fix it in the next update."),
+           ("Where do storage times come from?", "From your country's official guidance when it gives a number (for Brazil, the Ministry of Health's Guia Alimentar, p. 169). When it doesn't, Primilu uses a conservative default marked \u201capp default\u201d. You can change the date of any batch.")],
+    "pt-BR": [("Isso é orientação médica ou nutricional?", "Não. O Primilu organiza a introdução alimentar com referências de órgãos oficiais de saúde do seu país, sempre com a fonte. Ele não substitui o pediatra ou o nutricionista; os pratos e as quantidades sugeridos são pontos de partida."),
+              ("Achei um erro no conteúdo.", "Nos Ajustes, toque em Sugerir correção e conte o alimento ou a regra e o seu país. Corrigimos na próxima atualização."),
+              ("De onde vêm os prazos do freezer?", "Da orientação oficial do seu país, quando ela dá um número (no Brasil, o Guia Alimentar do Ministério da Saúde, p. 169). Quando não dá, o Primilu usa um padrão conservador marcado como \u201cpadrão do app\u201d. Você pode mudar a data de qualquer lote.")],
+    "pt-PT": [("Isto é aconselhamento médico ou nutricional?", "Não. O Primilu organiza a diversificação alimentar com referências de entidades oficiais de saúde do seu país, sempre com a fonte. Não substitui o pediatra nem o nutricionista; os pratos e as quantidades sugeridos são pontos de partida."),
+              ("Encontrei um erro no conteúdo.", "Nas Definições, toque em Sugerir correção e indique o alimento ou a regra e o seu país. Corrigimos na próxima atualização."),
+              ("De onde vêm os prazos do congelador?", "Da orientação oficial do seu país, quando indica um número. Quando não indica, o Primilu usa um padrão conservador identificado como \u201cpadrão da app\u201d. Pode alterar a data de qualquer lote.")],
+    "es": [("¿Esto es consejo médico o nutricional?", "No. Primilu organiza la alimentación complementaria con referencias de organismos oficiales de salud de tu país, siempre con la fuente. No sustituye al pediatra ni al nutricionista; los platos y las cantidades sugeridos son puntos de partida."),
+           ("He encontrado un error en el contenido.", "En Ajustes, toca Sugerir una corrección y cuéntanos el alimento o la regla y tu país. Lo corregimos en la próxima actualización."),
+           ("¿De dónde salen los plazos del congelador?", "De la guía oficial de tu país cuando da un número. Cuando no lo da, Primilu usa un valor conservador marcado como \u201cvalor de la app\u201d. Puedes cambiar la fecha de cualquier lote.")]},
 "purasorte": {
     "en": [("Are the numbers really random?", "Yes. They come from the system's cryptographic random generator. In the Proof tab you can run up to 1 million draws and see that no number is favored."),
            ("Does the app improve my odds?", "No. No app can: every combination is equally likely. Pura Sorte doesn't sell tickets and isn't affiliated with any lottery operator.")],
@@ -540,7 +572,7 @@ def build_page(slug, app, lang, doc):
     else:
         parts.append(f"<p class=\"lead\">{esc(t['support_lead']).replace('{email}', mail)}</p>")
         parts.append(f"<h2>{esc(t['faq'])}</h2>")
-        restore = (RESTORE_LUNIDO if slug == "lunido" else RESTORE)[lang]
+        restore = (RESTORE_LUNIDO if slug in ("lunido", "primilu") else RESTORE)[lang]
         restore_a = RESTORE_ANSWER.get(slug, {}).get(lang) or t["restore_a"].format(restore=restore)
         for q, a in [(t["restore_q"], restore_a), (t["sync_q"], t["sync_a"].format(app=app))] + FAQ[slug][lang]:
             parts.append(f"<h3>{esc(q)}</h3>\n<p>{esc(a)}</p>")
