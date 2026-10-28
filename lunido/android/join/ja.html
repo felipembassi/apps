@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lunido · 招待</title>
+<link rel="icon" href="../../icon.png">
+<link rel="stylesheet" href="../../../style.css">
+</head>
+<body>
+<header><img src="../../icon.png" alt="" width="88" height="88"><h1>Lunido</h1><p>招待</p></header>
+<main>
+<section>
+<p class="lead">Lunidoの共有出産準備リストに招待されました。</p>
+<div id="codebox" hidden><p>招待コード</p><p class="code" id="code"></p></div>
+<h2>Lunidoをお持ちの場合</h2>
+<p>Android端末で招待リンクをもう一度タップすると、Lunidoで開きます。または「設定 › リストを共有 › コードで参加」を開いて、上のコードを入力してください。コードの有効期限は7日間です。使えない場合は新しいコードをもらってください。</p>
+<h2>まだお持ちでない場合</h2>
+<p>Google PlayでLunidoを入手してから、招待リンクをもう一度タップしてください。</p>
+<p><a href="https://play.google.com/store/apps/details?id=com.felipebassi.lunido">Google PlayのLunido</a></p>
+<p class="muted">共有リストはAndroid端末どうしでのみ使えます。iPhoneの場合は、足りないものをメッセージで送ってもらってください。</p>
+<script>
+addEventListener("DOMContentLoaded", function () {
+  var abc = "23456789ABCDEFGHJKLMNPQRSTUVWXYZ";
+  var code = decodeURIComponent(location.hash.slice(1)).toUpperCase().split("").filter(function (c) { return abc.indexOf(c) >= 0; }).join("");
+  if (code.length !== 8) return;
+  document.getElementById("code").textContent = code.slice(0, 4) + "-" + code.slice(4);
+  document.getElementById("codebox").hidden = false;
+  document.querySelectorAll("footer a").forEach(function (a) { a.href += "#" + code; });
+});
+</script>
+</section>
+<nav><a href="../privacy/ja.html">プライバシー · Android</a></nav>
+<footer><span>ほかの言語:</span> <a href="en.html" lang="en">English</a> · <a href="pt-BR.html" lang="pt-BR">Português (Brasil)</a> · <a href="pt-PT.html" lang="pt-PT">Português (Portugal)</a> · <a href="es.html" lang="es">Español</a> · <a href="fr.html" lang="fr">Français</a> · <a href="de.html" lang="de">Deutsch</a> · <a href="it.html" lang="it">Italiano</a> · <a href="nl.html" lang="nl">Nederlands</a> · <a href="ja.html" lang="ja" aria-current="page">日本語</a></footer>
+</main>
+</body>
+</html>

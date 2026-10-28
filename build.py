@@ -1,7 +1,7 @@
 """Builds the support and privacy pages for Felipe Bassi's apps (GitHub Pages, static, no cookies or analytics).
 
-Run: python3 build.py   → <app>/{privacy,support}/<lang>.html and lunido/android/{privacy,delete-account}/<lang>.html,
-plus an index.html per folder that picks the browser's language.
+Run: python3 build.py   → <app>/{privacy,support}/<lang>.html and lunido/android/{privacy,delete-account,join}/<lang>.html
+(join: where the invite link lands without the app), plus an index.html per folder that picks the browser's language.
 Edit the texts here, never the generated HTML.
 """
 import html, json, pathlib
@@ -423,6 +423,68 @@ ANDROID = {
     email_h="アプリを使わずに削除する", email_p="端末をなくした、またはアプリで完了できなかった場合は、ログインに使ったGoogleのアドレスから {email} にメールで、Lunidoアカウントの削除をご依頼ください。30日以内に、アカウントとあなたが作成した共有プランを削除し、完了したらご連絡します。"),
 }
 
+# The Android invite link (https://felipembassi.github.io/apps/lunido/android/join/#CODE) opens Lunido through App
+# Links; this page is what someone without the app sees. The code stays in the fragment, so it never reaches a server.
+JOIN = {
+"en": dict(title="Invitation", lead="You've been invited to a shared baby list on Lunido.", code="Invite code",
+    have_h="Already have Lunido?", have_p="Tap the invite link again on your Android phone and it opens in Lunido. Or open {path} and type the code above. Codes last 7 days; if it doesn't work, ask for a new one.",
+    get_h="Don't have it yet?", get_p="Get Lunido on Google Play, then tap the invite link again.", play="Lunido on Google Play",
+    iphone_p="Shared lists work only between Android phones. With an iPhone, ask for what's missing as a text message instead.",
+    path="Settings › Share the list › Join with a code"),
+"pt-BR": dict(title="Convite", lead="Você recebeu um convite para um enxoval compartilhado no Lunido.", code="Código do convite",
+    have_h="Já tem o Lunido?", have_p="Toque no link do convite de novo no seu celular Android e ele abre no Lunido. Ou abra {path} e digite o código acima. Os códigos valem por 7 dias; se não funcionar, peça um novo.",
+    get_h="Ainda não tem?", get_p="Baixe o Lunido no Google Play e toque no link do convite de novo.", play="Lunido no Google Play",
+    iphone_p="Listas compartilhadas funcionam só entre celulares Android. Com um iPhone, peça o que falta por mensagem.",
+    path="Ajustes › Compartilhar a lista › Entrar com um código"),
+"pt-PT": dict(title="Convite", lead="Recebeu um convite para um enxoval partilhado no Lunido.", code="Código do convite",
+    have_h="Já tem o Lunido?", have_p="Toque outra vez na ligação do convite no seu telemóvel Android e ela abre no Lunido. Ou abra {path} e escreva o código acima. Os códigos valem 7 dias; se não funcionar, peça um novo.",
+    get_h="Ainda não tem?", get_p="Instale o Lunido a partir do Google Play e toque outra vez na ligação do convite.", play="Lunido no Google Play",
+    iphone_p="As listas partilhadas só funcionam entre telemóveis Android. Com um iPhone, peça o que falta por mensagem.",
+    path="Definições › Partilhar a lista › Entrar com um código"),
+"es": dict(title="Invitación", lead="Recibiste una invitación a una lista del bebé compartida en Lunido.", code="Código de invitación",
+    have_h="¿Ya tienes Lunido?", have_p="Vuelve a tocar el enlace de la invitación en tu móvil Android y se abrirá en Lunido. O abre {path} y escribe el código de arriba. Los códigos duran 7 días; si no funciona, pide uno nuevo.",
+    get_h="¿Todavía no lo tienes?", get_p="Descarga Lunido en Google Play y vuelve a tocar el enlace de la invitación.", play="Lunido en Google Play",
+    iphone_p="Las listas compartidas solo funcionan entre móviles Android. Con un iPhone, pide lo que falta por mensaje.",
+    path="Ajustes › Compartir la lista › Unirme con un código"),
+"fr": dict(title="Invitation", lead="Vous avez reçu une invitation à une liste bébé partagée sur Lunido.", code="Code d'invitation",
+    have_h="Vous avez déjà Lunido ?", have_p="Touchez à nouveau le lien de l'invitation sur votre téléphone Android : il s'ouvre dans Lunido. Ou ouvrez {path} et tapez le code ci-dessus. Les codes sont valables 7 jours ; s'il ne fonctionne pas, demandez-en un nouveau.",
+    get_h="Pas encore installé ?", get_p="Installez Lunido depuis Google Play, puis touchez à nouveau le lien de l'invitation.", play="Lunido sur Google Play",
+    iphone_p="Les listes partagées ne fonctionnent qu'entre téléphones Android. Avec un iPhone, demandez plutôt ce qui manque par message.",
+    path="Réglages › Partager la liste › Rejoindre avec un code"),
+"de": dict(title="Einladung", lead="Du wurdest zu einer geteilten Babyliste in Lunido eingeladen.", code="Einladungscode",
+    have_h="Hast du Lunido schon?", have_p="Tippe auf deinem Android-Handy noch einmal auf den Einladungslink, dann öffnet er sich in Lunido. Oder öffne {path} und gib den Code oben ein. Codes gelten 7 Tage; wenn er nicht funktioniert, bitte um einen neuen.",
+    get_h="Noch nicht installiert?", get_p="Lade Lunido bei Google Play herunter und tippe dann noch einmal auf den Einladungslink.", play="Lunido bei Google Play",
+    iphone_p="Geteilte Listen funktionieren nur zwischen Android-Handys. Mit einem iPhone lass dir stattdessen per Nachricht schicken, was noch fehlt.",
+    path="Einstellungen › Liste teilen › Mit Code beitreten"),
+"it": dict(title="Invito", lead="Hai ricevuto un invito a una lista nascita condivisa su Lunido.", code="Codice d'invito",
+    have_h="Hai già Lunido?", have_p="Tocca di nuovo il link dell'invito sul tuo telefono Android e si aprirà in Lunido. Oppure apri {path} e scrivi il codice qui sopra. I codici valgono 7 giorni; se non funziona, chiedine uno nuovo.",
+    get_h="Non ce l'hai ancora?", get_p="Scarica Lunido da Google Play, poi tocca di nuovo il link dell'invito.", play="Lunido su Google Play",
+    iphone_p="Le liste condivise funzionano solo tra telefoni Android. Con un iPhone, fatti mandare per messaggio cosa manca.",
+    path="Impostazioni › Condividi la lista › Entra con un codice"),
+"nl": dict(title="Uitnodiging", lead="Je bent uitgenodigd voor een gedeelde babylijst in Lunido.", code="Uitnodigingscode",
+    have_h="Heb je Lunido al?", have_p="Tik op je Android-telefoon nog een keer op de uitnodigingslink, dan opent die in Lunido. Of open {path} en typ de code hierboven. Codes zijn 7 dagen geldig; werkt hij niet, vraag dan om een nieuwe.",
+    get_h="Nog niet geïnstalleerd?", get_p="Download Lunido via Google Play en tik daarna nog een keer op de uitnodigingslink.", play="Lunido via Google Play",
+    iphone_p="Gedeelde lijsten werken alleen tussen Android-telefoons. Met een iPhone kun je beter per bericht vragen wat er nog ontbreekt.",
+    path="Instellingen › Lijst delen › Deelnemen met een code"),
+"ja": dict(title="招待", lead="Lunidoの共有出産準備リストに招待されました。", code="招待コード",
+    have_h="Lunidoをお持ちの場合", have_p="Android端末で招待リンクをもう一度タップすると、Lunidoで開きます。または「{path}」を開いて、上のコードを入力してください。コードの有効期限は7日間です。使えない場合は新しいコードをもらってください。",
+    get_h="まだお持ちでない場合", get_p="Google PlayでLunidoを入手してから、招待リンクをもう一度タップしてください。", play="Google PlayのLunido",
+    iphone_p="共有リストはAndroid端末どうしでのみ使えます。iPhoneの場合は、足りないものをメッセージで送ってもらってください。",
+    path="設定 › リストを共有 › コードで参加"),
+}
+PLAY_URL = "https://play.google.com/store/apps/details?id=com.felipebassi.lunido"
+# Shows the code from the fragment (same alphabet as SharedPlans.kt) and keeps it on the language links.
+JOIN_SCRIPT = """<script>
+addEventListener("DOMContentLoaded", function () {
+  var abc = "23456789ABCDEFGHJKLMNPQRSTUVWXYZ";
+  var code = decodeURIComponent(location.hash.slice(1)).toUpperCase().split("").filter(function (c) { return abc.indexOf(c) >= 0; }).join("");
+  if (code.length !== 8) return;
+  document.getElementById("code").textContent = code.slice(0, 4) + "-" + code.slice(4);
+  document.getElementById("codebox").hidden = false;
+  document.querySelectorAll("footer a").forEach(function (a) { a.href += "#" + code; });
+});
+</script>"""
+
 PAGE = """<!doctype html>
 <html lang="{lang}">
 <head>
@@ -515,6 +577,16 @@ def build_android_page(lang, doc):
         parts.append(f"<p>{esc(p).replace('{email}', mail).replace('{delete_link}', delete_link)}</p>")
     return render(lang, "Lunido", APPS["lunido"]["langs"], title, parts, other_doc, other_label, up="../../")
 
+def build_join_page(lang):
+    """Where the Android invite link lands without the app: lunido/android/join/<lang>.html#CODE."""
+    j = JOIN[lang]
+    parts = [f"<p class=\"lead\">{esc(j['lead'])}</p>",
+             f"<div id=\"codebox\" hidden><p>{esc(j['code'])}</p><p class=\"code\" id=\"code\"></p></div>",
+             f"<h2>{esc(j['have_h'])}</h2>", f"<p>{esc(j['have_p']).replace('{path}', esc(j['path']))}</p>",
+             f"<h2>{esc(j['get_h'])}</h2>", f"<p>{esc(j['get_p'])}</p>", f"<p><a href=\"{PLAY_URL}\">{esc(j['play'])}</a></p>",
+             f"<p class=\"muted\">{esc(j['iphone_p'])}</p>", JOIN_SCRIPT]
+    return render(lang, "Lunido", APPS["lunido"]["langs"], j["title"], parts, "privacy", f"{L[lang]['privacy_link']} · Android", up="../../")
+
 CHOOSER = """<!doctype html>
 <html lang="en">
 <head>
@@ -532,9 +604,9 @@ CHOOSER = """<!doctype html>
     var w = wanted[i].toLowerCase(), base = w.split("-")[0];
     var hit = langs.filter(function (l) {{ return l.toLowerCase() === w; }})[0]
            || langs.filter(function (l) {{ return l.toLowerCase().split("-")[0] === base; }})[0];
-    if (hit) {{ location.replace(hit + ".html"); return; }}
+    if (hit) {{ location.replace(hit + ".html" + location.hash); return; }}
   }}
-  location.replace((langs.indexOf("en") >= 0 ? "en" : langs[0]) + ".html");
+  location.replace((langs.indexOf("en") >= 0 ? "en" : langs[0]) + ".html" + location.hash);
 }})();
 </script>
 </head>
@@ -582,6 +654,7 @@ def main():
     for doc in ("privacy", "delete-account"):
         pages += write_folder(ROOT / "lunido" / "android" / doc, "Lunido", APPS["lunido"]["langs"],
                               lambda lang: build_android_page(lang, doc), up="../../")
+    pages += write_folder(ROOT / "lunido" / "android" / "join", "Lunido", APPS["lunido"]["langs"], build_join_page, up="../../")
     (ROOT / "index.html").write_text(INDEX.format(cards="\n".join(cards), email=EMAIL))
     for old, new in MOVED.items():
         for page in (ROOT / new).rglob("*.html"):

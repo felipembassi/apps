@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lunido · Invitation</title>
+<link rel="icon" href="../../icon.png">
+<link rel="stylesheet" href="../../../style.css">
+</head>
+<body>
+<header><img src="../../icon.png" alt="" width="88" height="88"><h1>Lunido</h1><p>Invitation</p></header>
+<main>
+<section>
+<p class="lead">Vous avez reçu une invitation à une liste bébé partagée sur Lunido.</p>
+<div id="codebox" hidden><p>Code d'invitation</p><p class="code" id="code"></p></div>
+<h2>Vous avez déjà Lunido ?</h2>
+<p>Touchez à nouveau le lien de l'invitation sur votre téléphone Android : il s'ouvre dans Lunido. Ou ouvrez Réglages › Partager la liste › Rejoindre avec un code et tapez le code ci-dessus. Les codes sont valables 7 jours ; s'il ne fonctionne pas, demandez-en un nouveau.</p>
+<h2>Pas encore installé ?</h2>
+<p>Installez Lunido depuis Google Play, puis touchez à nouveau le lien de l'invitation.</p>
+<p><a href="https://play.google.com/store/apps/details?id=com.felipebassi.lunido">Lunido sur Google Play</a></p>
+<p class="muted">Les listes partagées ne fonctionnent qu'entre téléphones Android. Avec un iPhone, demandez plutôt ce qui manque par message.</p>
+<script>
+addEventListener("DOMContentLoaded", function () {
+  var abc = "23456789ABCDEFGHJKLMNPQRSTUVWXYZ";
+  var code = decodeURIComponent(location.hash.slice(1)).toUpperCase().split("").filter(function (c) { return abc.indexOf(c) >= 0; }).join("");
+  if (code.length !== 8) return;
+  document.getElementById("code").textContent = code.slice(0, 4) + "-" + code.slice(4);
+  document.getElementById("codebox").hidden = false;
+  document.querySelectorAll("footer a").forEach(function (a) { a.href += "#" + code; });
+});
+</script>
+</section>
+<nav><a href="../privacy/fr.html">Politique de confidentialité · Android</a></nav>
+<footer><span>Autres langues:</span> <a href="en.html" lang="en">English</a> · <a href="pt-BR.html" lang="pt-BR">Português (Brasil)</a> · <a href="pt-PT.html" lang="pt-PT">Português (Portugal)</a> · <a href="es.html" lang="es">Español</a> · <a href="fr.html" lang="fr" aria-current="page">Français</a> · <a href="de.html" lang="de">Deutsch</a> · <a href="it.html" lang="it">Italiano</a> · <a href="nl.html" lang="nl">Nederlands</a> · <a href="ja.html" lang="ja">日本語</a></footer>
+</main>
+</body>
+</html>

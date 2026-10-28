@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lunido · Convite</title>
+<link rel="icon" href="../../icon.png">
+<link rel="stylesheet" href="../../../style.css">
+</head>
+<body>
+<header><img src="../../icon.png" alt="" width="88" height="88"><h1>Lunido</h1><p>Convite</p></header>
+<main>
+<section>
+<p class="lead">Você recebeu um convite para um enxoval compartilhado no Lunido.</p>
+<div id="codebox" hidden><p>Código do convite</p><p class="code" id="code"></p></div>
+<h2>Já tem o Lunido?</h2>
+<p>Toque no link do convite de novo no seu celular Android e ele abre no Lunido. Ou abra Ajustes › Compartilhar a lista › Entrar com um código e digite o código acima. Os códigos valem por 7 dias; se não funcionar, peça um novo.</p>
+<h2>Ainda não tem?</h2>
+<p>Baixe o Lunido no Google Play e toque no link do convite de novo.</p>
+<p><a href="https://play.google.com/store/apps/details?id=com.felipebassi.lunido">Lunido no Google Play</a></p>
+<p class="muted">Listas compartilhadas funcionam só entre celulares Android. Com um iPhone, peça o que falta por mensagem.</p>
+<script>
+addEventListener("DOMContentLoaded", function () {
+  var abc = "23456789ABCDEFGHJKLMNPQRSTUVWXYZ";
+  var code = decodeURIComponent(location.hash.slice(1)).toUpperCase().split("").filter(function (c) { return abc.indexOf(c) >= 0; }).join("");
+  if (code.length !== 8) return;
+  document.getElementById("code").textContent = code.slice(0, 4) + "-" + code.slice(4);
+  document.getElementById("codebox").hidden = false;
+  document.querySelectorAll("footer a").forEach(function (a) { a.href += "#" + code; });
+});
+</script>
+</section>
+<nav><a href="../privacy/pt-BR.html">Política de privacidade · Android</a></nav>
+<footer><span>Outros idiomas:</span> <a href="en.html" lang="en">English</a> · <a href="pt-BR.html" lang="pt-BR" aria-current="page">Português (Brasil)</a> · <a href="pt-PT.html" lang="pt-PT">Português (Portugal)</a> · <a href="es.html" lang="es">Español</a> · <a href="fr.html" lang="fr">Français</a> · <a href="de.html" lang="de">Deutsch</a> · <a href="it.html" lang="it">Italiano</a> · <a href="nl.html" lang="nl">Nederlands</a> · <a href="ja.html" lang="ja">日本語</a></footer>
+</main>
+</body>
+</html>
